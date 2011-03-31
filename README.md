@@ -6,3 +6,6 @@
 - Login to your blog
 - Open Extensions menu
 - Click 'Edit' for the CommentsExport Extension
+- Add mappings for old username / emails
+- Select posts for export
+- Press 'Export' button
