@@ -58,18 +58,18 @@ namespace Halan.Extensions {
 
   public class CommentsExporter  {
 
-    private readonly string DATE_FORMAT = "yyyy-MM-dd HH:mm";
+    private readonly string DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     private int commentCount = 0;
 
     List<AuthorMap> _authorsMap;
 
-    const string nsCONTENT	= "http://purl.org/rss/1.0/modules/content/";
-    const string nsDSQ			= "http://www.disqus.com/";
-    const string nsWP				= "http://wordpress.org/export/1.0/";
-    const string nsEXCERPT	= "http://wordpress.org/export/1.0/excerpt/";
-    const string nsWFW			= "http://wellformedweb.org/CommentAPI/";
-    const string nsDC				=	"http://purl.org/dc/elements/1.1/";
+    const string nsCONTENT  = "http://purl.org/rss/1.0/modules/content/";
+    const string nsDSQ      = "http://www.disqus.com/";
+    const string nsWP       = "http://wordpress.org/export/1.0/";
+    const string nsEXCERPT  = "http://wordpress.org/export/1.0/excerpt/";
+    const string nsWFW      = "http://wellformedweb.org/CommentAPI/";
+    const string nsDC       =	"http://purl.org/dc/elements/1.1/";
 
     Dictionary<string, string> _ns = new Dictionary<string, string>(3); 
 

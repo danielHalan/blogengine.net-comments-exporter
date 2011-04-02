@@ -78,7 +78,7 @@
               <th style="padding: 6px; min-width: 140px; padding-right: 8px;">Desination Email</th>
             </tr>
         </HeaderTemplate>
-        <ItemTemplate>
+        <ItemTemplate>  
           <tr>
             <td style="padding: 6px; border-bottom: 1px dotted #8C8C8C; background-color: #F0F0F0;">
               <%# ((Halan.Extensions.AuthorMap)Container.DataItem).BlogEngineAuthor.Name %>
