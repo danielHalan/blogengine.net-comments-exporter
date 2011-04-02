@@ -109,9 +109,9 @@ namespace Halan.Extensions {
 				AuthorData data = AuthorData.Parse(ddlCurrentName.SelectedItem.Value);
 				AuthorMap map = new AuthorMap();
 				map.BlogEngineAuthor = data;
-				map.DesitnationAuthorName = tbDestName.Text;
-				map.DesitnationAuthorEmail = !string.IsNullOrEmpty(tbDestEmail.Text) ? tbDestEmail.Text : data.Email;
-				map.DesitnationAuthorURL = !string.IsNullOrEmpty(tbDestUrl.Text) ? tbDestUrl.Text : data.URL;
+				map.DesitnationAuthor.Name = tbDestName.Text;
+				map.DesitnationAuthor.Email = !string.IsNullOrEmpty(tbDestEmail.Text) ? tbDestEmail.Text : data.Email;
+				map.DesitnationAuthor.URL = !string.IsNullOrEmpty(tbDestUrl.Text) ? tbDestUrl.Text : data.URL;
 				AuthorMaps.Add(map);
 
 				tbDestName.Text = string.Empty;

@@ -51,9 +51,7 @@ namespace Halan.Extensions {
   [Serializable]
   public class AuthorMap {
     public AuthorData BlogEngineAuthor;
-    public string DesitnationAuthorName;
-    public string DesitnationAuthorEmail;
-    public string DesitnationAuthorURL;
+    public AuthorData DesitnationAuthor = new AuthorData();
   }
 
   public class CommentsExporter  {
@@ -182,7 +180,7 @@ namespace Halan.Extensions {
       foreach(AuthorMap a in _authorsMap )
         if( a.BlogEngineAuthor.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase) && 
           ( a.BlogEngineAuthor.Email.Equals(email, StringComparison.CurrentCultureIgnoreCase) ) )
-          return a.DesitnationAuthorName;
+          return a.DesitnationAuthor.Name;
 
       return name;
     }
@@ -190,7 +188,7 @@ namespace Halan.Extensions {
       foreach( AuthorMap a in _authorsMap )
         if( a.BlogEngineAuthor.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase) &&
           ( a.BlogEngineAuthor.Email.Equals(email, StringComparison.CurrentCultureIgnoreCase) ) )
-          return a.DesitnationAuthorEmail;
+          return a.DesitnationAuthor.Email;
 
       return (email != "pingback" && email != "trackback") ? email : string.Empty;
     }
@@ -200,7 +198,7 @@ namespace Halan.Extensions {
       foreach( AuthorMap a in _authorsMap )
         if( a.BlogEngineAuthor.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase) &&
           ( a.BlogEngineAuthor.Email.Equals(email, StringComparison.CurrentCultureIgnoreCase) ) )
-          return !string.IsNullOrEmpty(a.DesitnationAuthorURL) ? a.DesitnationAuthorURL : url;
+          return !string.IsNullOrEmpty(a.DesitnationAuthor.URL) ? a.DesitnationAuthor.URL : url;
 
       return url;
     }

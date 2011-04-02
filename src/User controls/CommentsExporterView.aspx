@@ -84,10 +84,10 @@
               <%# ((Halan.Extensions.AuthorMap)Container.DataItem).BlogEngineAuthor.Name %>
             </td>
             <td style="padding: 6px; border-bottom: 1px dotted #8C8C8C; padding-left: 4px;">
-              <%# ((Halan.Extensions.AuthorMap)Container.DataItem).DesitnationAuthorName%>
+              <%# ((Halan.Extensions.AuthorMap)Container.DataItem).DesitnationAuthor.Name%>
             </td>
             <td style="padding: 6px; border-bottom: 1px dotted #8C8C8C;">
-              <%# ((Halan.Extensions.AuthorMap)Container.DataItem).DesitnationAuthorEmail%>
+              <%# ((Halan.Extensions.AuthorMap)Container.DataItem).DesitnationAuthor.Email%>
             </td>
           </tr>
         </ItemTemplate>
