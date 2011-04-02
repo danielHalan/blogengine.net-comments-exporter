@@ -268,8 +268,6 @@ namespace Halan.Extensions {
       }
     }
 
-
   }
-
 
 }
