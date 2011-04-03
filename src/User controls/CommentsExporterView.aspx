@@ -18,7 +18,6 @@
   }
 
   function togglePosts() {
-    // ctl00_cphAdmin_cblPosts_1
     var i = 0;
     var ctl;
     var status = new Array(0, 0);
