@@ -129,6 +129,6 @@
 
 
     <hr />
-    &copy;2011 Daniel Halan (<a href="http://www.halan.se">www.halan.se</a>)
+    BlogEngine.NET Comments Exporter v1.0, &copy;2011 Daniel Halan (<a href="http://www.halan.se">www.halan.se</a>)
   </div>
 </asp:Content>
