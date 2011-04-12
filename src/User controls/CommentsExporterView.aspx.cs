@@ -10,6 +10,7 @@ using BlogEngine.Core.Web.Controls;
 namespace Halan.Extensions {
   public partial class CommentsExporterView : System.Web.UI.Page {
 
+    const string EXPORT_FILENAME = "MyBlogExport-Wordpress.wxr";
       
     protected void Page_Load(object sender, EventArgs e) {
 
@@ -136,7 +137,7 @@ namespace Halan.Extensions {
         return;
       
       Response.Clear();
-      Response.AddHeader("Content-Disposition", "attachment; filename=Comments-WordPress.wxr");
+      Response.AddHeader("Content-Disposition", string.Format("attachment; filename={0}", EXPORT_FILENAME));
       new CommentsExporter().Export(Response.OutputStream, s, AuthorMaps);
       Response.End();
     }
