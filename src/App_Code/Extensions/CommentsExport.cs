@@ -56,11 +56,7 @@ namespace Halan.Extensions {
 
   public class CommentsExporter  {
 
-    private readonly string DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-
-    private int commentCount = 0;
-
-    List<AuthorMap> _authorsMap;
+    const string DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     const string nsCONTENT  = "http://purl.org/rss/1.0/modules/content/";
     const string nsDSQ      = "http://www.disqus.com/";
@@ -68,8 +64,12 @@ namespace Halan.Extensions {
     const string nsEXCERPT  = "http://wordpress.org/export/1.0/excerpt/";
     const string nsWFW      = "http://wellformedweb.org/CommentAPI/";
     const string nsDC       =	"http://purl.org/dc/elements/1.1/";
+    
+    Dictionary<string, string> _ns = new Dictionary<string, string>(6); 
 
-    Dictionary<string, string> _ns = new Dictionary<string, string>(3); 
+    int _commentCount = 0;
+
+    List<AuthorMap> _authorsMap;
 
     XmlDocument _doc;
 
@@ -84,6 +84,7 @@ namespace Halan.Extensions {
 
     public void Export(Stream output, List<Guid> selection, List<AuthorMap> authorsMap) {
       _authorsMap = authorsMap;
+      _commentCount = 0;
 
       _doc = new XmlDocument();
       _doc.AppendChild( _doc.CreateNode(XmlNodeType.XmlDeclaration, null, null));
@@ -246,7 +247,7 @@ namespace Halan.Extensions {
 
 
       XmlElement cmt = XElement("wp:comment");
-      cmt.AppendChild(XElement("wp:comment_id", (++commentCount).ToString() ) );
+      cmt.AppendChild(XElement("wp:comment_id", (++_commentCount).ToString() ) );
       cmt.AppendChild(XElement("wp:comment_author", _doc.CreateCDataSection(GetAuthorName(comment.Author, comment.Email))));
       cmt.AppendChild(XElement("wp:comment_author_email", GetAuthorEmail(comment.Author, comment.Email)));
       cmt.AppendChild(XElement("wp:comment_author_url", GetAuthorWebPage(comment.Author, comment.Email, comment.Website)));
@@ -262,7 +263,7 @@ namespace Halan.Extensions {
       root.AppendChild(cmt);
 
       foreach( Comment sub in comment.Comments ) {
-        AddComment(root, sub, commentCount);
+        AddComment(root, sub, _commentCount);
       }
     }
 
